@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bkar Flower | بكار فلاور للزهور</title>
+    <style>
+        /* 1. المتغيرات والألوان الأساسية للموقع */
+        :root {
+            --main-blue: #E1F5FE;      /* بيبي بلو ناعم للخلفيات */
+            --baby-blue: #B3E5FC;      /* بيبي بلو داكن قليلاً للعناصر */
+            --pink-light: #FCE4EC;     /* وردي ناعم جداً */
+            --pink-accent: #F48FB1;    /* وردي جذاب لرموز الورد والأزرار */
+            --text-dark: #37474F;      /* لون الخط الداكن المريح للعين */
+            --white: #FFFFFF;
+        }
+
+        /* 2. التنسيق العام للموقع (تعديل الخلفية لتصبح اللوجو بشكل ناعم) */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* وضع اللوجو كخلفية ثابتة وشفافة ناعمة جداً للموقع */
+            background: linear-gradient(rgba(225, 245, 254, 0.94), rgba(225, 245, 254, 0.94)), url('logo.png');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: contain;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* 3. شاشة الترحيب الافتتاحية المحدثة باللوجو الدائري وقص الحواف */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #111111; /* خلفية داكنة لتبرز ألوان إطار اللوجو الدائري */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+
+        .splash-logo-img {
+            width: 260px;               /* حجم مناسب وواضح للشعار */
+            height: 260px;
+            border-radius: 50%;         /* يجعل الصورة دائرية */
+            object-fit: cover;          /* يحافظ على أبعاد اللوجو الداخلي */
+            transform: scale(0.85);     /* عمل زووم داخلي لإخفاء الأطراف السوداء */
+            animation: pulse-logo 1.8s infinite ease-in-out;
+        }
+
+        /* تأثير النبض الحركي للشعار */
+        @keyframes pulse-logo {
+            0% { transform: scale(0.85); box-shadow: 0 0 20px rgba(244,143,177,0.2); }
+            50% { transform: scale(0.92); box-shadow: 0 0 40px rgba(244,143,177,0.5); }
+            100% { transform: scale(0.85); box-shadow: 0 0 20px rgba(244,143,177,0.2); }
+        }
+
+        /* 4. محتوى الموقع الأساسي (مخفي في البداية) */
+        #main-content {
+            display: none;
+        }
+
+        /* 5. الهيدر والقائمة العلوية */
+        header {
+            background-color: var(--white);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .logo span {
+            color: var(--pink-accent);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-right: 20px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--pink-accent);
+        }
+
+        /* 6. التنسيقات العامة للأقسام */
+        section {
+            padding: 80px 10%;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--pink-accent);
+            border-radius: 2px;
+        }
+
+        /* 7. قسم الهيرو والترحيب البصري */
+        .hero {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(252,228,236,0.9) 100%);
+            text-align: center;
+            padding: 100px 5%;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #546E7A;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            background-color: var(--pink-accent);
+            color: var(--white);
+            padding: 12px 35px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(244,143,177,0.4);
+            transition: transform 0.3s, background-color 0.3s;
+            display: inline-block;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            background-color: #f06292;
+        }
+
+        /* 8. شبكة الورد المتوفر (Flower Grid) */
+        .flower-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .flower-card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.03);
+            border: 1px solid rgba(225,245,254,0.7);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .flower-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.07);
+        }
+
+        .flower-img {
+            font-size: 50px;
+            margin-bottom: 15px;
+            background-color: var(--main-blue);
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .flower-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #E8F5E9;
+            color: #2E7D32;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* 9. شبكة طرق الدفع */
+        .payment-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .pay-card {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .pay-card .icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        /* 10. قسم الاتصال والفوتر */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+        }
+
+        /* 11. تأثيرات وحركات الظهور السلس (Scroll Animations) */
+        .animate-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-zoom {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-up.show, .animate-zoom.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* تحسينات الشاشات الصغيرة للهواتف */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; text-align: center; }
+            nav a { margin: 0 10px; font-size: 13px; }
+            section { padding: 50px 5%; }
+            .hero h1 { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- أولاً: شاشة الترحيب السريعة باللوجو الجديد المحدّث والدائري تماماً -->
+    <div id="splash-screen">
+        <img src="logo.png" alt="Bkar Flower Logo" class="splash-logo-img">
+    </div>
+
+    <!-- ثانياً: محتوى الموقع بالكامل -->
+    <div id="main-content">
+        
+        <!-- القائمة العلوية -->
+        <header>
+            <div class="logo">Bkar <span>Flower</span></div>
+            <nav>
+                <a href="#hero">الرئيسية</a>
+                <a href="#about">نبذة عنا</a>
+                <a href="#flowers">الورد المتوفر</a>
+                <a href="#payment">طرق الدفع</a>
+                <a href="#contact">التواصل</a>
+            </nav>
+        </header>
+
+        <!-- القسم الترحيبي (Hero) -->
+        <section id="hero" class="hero">
+            <h1>أجمل الزهور الطبيعية لكل مناسباتكم</h1>
+            <p>في بكار فلاور نصنع من مشاعركم باقات ورد تنبض بالحياة والألوان.</p>
+            <a href="https://wa.me" target="_blank" class="hero-btn">اطلب بوكيه مخصص الآن 💐</a>
+        </section>
+
+        <!-- قسم نبذة عنا -->
+        <section id="about" class="animate-up">
+            <h2 class="section-title">نبذة عنا</h2>
+            <p style="text-align: center; color: #607D8B; margin-top: -30px; margin-bottom: 40px; font-size: 15px;">بكار فلاور مش مجرد بوكيه ورد لان كل بوكيه بيكون ليه لفه وطريقه وتصميم مختلف عن غيرو من البوكيهات يعني بوكيه حضرتك هيكون مميز عن اي بوكيه ف اي مكان  بكار فالور جاخز لكل المناسبات (اعياد ميلاد او زفاف  او خطوبه او افتتاح او مناقشات الدكتوراه والماجستير )</p>
+            <p style="text-align: center; color: #607D8B; margin-bottom: 40px; font-size: 15px;">من خلال خبرتنا الطويلة في عالم الزهور، نختار بعناية كل زهرة وننسقها بحب واهتمام لنضمن لك تجربة شراء لا مثيل لها.</p>
+        </section>
+            <!-- ========================================== -->
+        <!-- 5. قسم الورد المتوفر (المعرض الكامل والمنظم) -->
+        <!-- ========================================== -->
+        <section id="flowers">
+            <h2 class="section-title">الورد المتوفر حالياً</h2>
+            <p style="text-align: center; color: #607D8B; margin-top: -30px; margin-bottom: 40px; font-size: 15px;">تصفح تشكيلتنا المتجددة واختر ما يناسب مناسبتك السعيدة</p>
+            
+            <div class="flower-grid">
+                <!-- كارت 1 -->
+                <div class="flower-card animate-zoom">
+                    <div class="flower-img">💐</div>
+                    <h3>بوكيه الخطوبة والزفاف الملكي</h3>
+                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">تنسيق فاخر من الروز الأبيض والبيبي روز مع لمسات خضراء أنيقة.</p>
+                    <span class="status-badge">جاهز ومتوفر بالمحل</span>
+                </div>
+
+                <!-- كارت 2 -->
+                <div class="flower-card animate-zoom">
+                    <div class="flower-img">🌹</div>
+                    <h3>فازة الروز الأحمر الكلاسيكية</h3>
+                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">أرقى زهور الروز الأحمر الهولندي المرتبة داخل فازة زجاجية فاخرة.</p>
+                    <span class="status-badge">جاهز ومتوفر بالمحل</span>
+                </div>
+
+                <!-- كارت 3 -->
+                <div class="flower-card animate-zoom">
+                    <div class="flower-img">🌸</div>
+                    <h3>بوكس هدايا ميكس توليب وبيبي روز</h3>
+                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">تنسيق مبهج بألوان الباستيل الهادئة داخل بوكس مخملي أنيق.</p>
+                    <span class="status-badge">جاهز ومتوفر بالمحل</span>
+                </div>
+
+                <!-- كارت 4 -->
+                <div class="flower-card animate-zoom">
+                    <div class="flower-img">🌻</div>
+                    <h3>باقة عباد الشمس الحيوية</h3>
+                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">باقة تشع بالطاقة والإيجابية من زهور عباد الشمس الطبيعية المبهجة.</p>
+                    <span class="status-badge" style="background-color: #FFF3E0; color: #E65100;">متاح بالطلب المسبق</span>
+                </div>
+
+                <!-- كارت 5 -->
+                <div class="flower-card animate-zoom">
+                    <div class="flower-img">💮</div>
+                    <h3>بوكيه رقة الأوركيد والـ شوكولاتة</h3>
+                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">دمج راقٍ بين زهور الأوركيد النادرة وقطع الشوكولاتة الفاخرة للهدايا.</p>
+                    <span class="status-badge">جاهز ومتوفر بالمحل</span>
+                </div>
+
+                <!-- كارت 6 -->
+                <div class="flower-card animate-zoom">
+                    <div class="flower-img">🌾</div>
+                    <h3>تنسيق زهور مجففة ودائمة</h3>
+                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">باقة كلاسيكية مميزة من الزهور المجففة التي تدوم لسنوات دون أن تذبل.</p>
+                    <span class="status-badge">جاهز ومتوفر بالمحل</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 6. قسم طرق الدفع المتاحة -->
+        <!-- ========================================== -->
+        <section id="payment" class="animate-up">
+            <h2 class="section-title">طرق الدفع المتاحة</h2>
+            <p style="text-align: center; color: #607D8B; margin-top: -30px; margin-bottom: 40px; font-size: 15px;">نوفر لك خيارات دفع مرنة وسهلة لتسهيل عملية الشراء والهدية</p>
+            
+            <div class="payment-container">
+                <div class="pay-card">
+                    <div class="icon">💵</div>
+                    <h3>الدفع نقداً (كاش)</h3>
+                    <p style="color: #546E7A; font-size: 13px; margin-top: 10px;">يمكنك الدفع مباشرة عند زيارتك للمحل، أو كاش للمندوب عند استلام البوكيه في منزلك.</p>
+                </div>
+                <div class="pay-card">
+                    <div class="icon">📱</div>
+                    <h3>المحافظ الإلكترونية</h3>
+                    <p style="color: #546E7A; font-size: 13px; margin-top: 10px;">نستقبل المدفوعات عبر فودافون كاش، أورانج كاش، أو أي محفظة بنكية إلكترونية بسرعة وأمان.</p>
+                </div>
+                <div class="pay-card">
+                    <div class="icon">💳</div>
+                    <h3>البطاقات وإنستا باي</h3>
+                    <p style="color: #546E7A; font-size: 13px; margin-top: 10px;">نقبل الدفع ببطاقات الفيزا وماستر كارد، أو عبر التحويل المباشر وتطبيق إنستا باي (InstaPay).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 7. قسم التواصل والموقع الجغرافي -->
+        <!-- ========================================== -->
+        <section id="contact" class="animate-up">
+            <h2 class="section-title">تواصل معنا الآن</h2>
+            <div class="contact-content">
+                <p style="margin-bottom: 25px; font-size: 15px; color: #546E7A;">يسعدنا دائماً استقبال طلباتكم الخاصة واستفساراتكم حول الأسعار والتنسيقات المخصصة:</p>
+                
+                <div style="background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 12px; margin-bottom: 15px; border: 1px solid var(--baby-blue);">
+                    📞 <strong>رقم الهاتف المباشر:</strong> <br>
+                    <a href="tel:01001156061" style="font-size: 18px; color: var(--pink-accent); text-decoration: none; font-weight: bold;">01001156061</a>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 12px; margin-bottom: 15px; border: 1px solid var(--baby-blue);">
+                    💬 <strong>واتساب سريع للطلبات:</strong> <br>
+                    <a href="https://wa.me" target="_blank" style="font-size: 15px; background: #25D366; color: white; padding: 8px 20px; border-radius: 20px; display: inline-block; margin-top: 5px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(37,211,102,0.3);">إرسال رسالة واتساب مباشرة 💬</a>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 12px; border: 1px solid var(--baby-blue);">
+                    📍 <strong>عنوان المحل:</strong> <br>
+                    <p style="font-size: 14px; color: var(--text-dark); margin-bottom: 5px;">فريال - محمود رشوان - امام المعهد الديني </p>
+                    <a href="https://www.google.com/maps/@27.1920525,31.1852479,19.95z?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: var(--pink-accent); font-weight: bold; font-size: 14px; text-decoration: none;">عرض موقع المحل على الخريطة 🗺️</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- الفوتر والإنهاء -->
+        <footer>
+            <p style="font-weight: 600;">جميع الحقوق محفوظة © Bkar Flower 2026</p>
+        </footer>
+    </div> <!-- إغلاق وسم main-content من الجزء الأول -->
+
+    <!-- ========================================== -->
+    <!-- 8. كود الجافا سكريبت الكامل للحركات وشاشة الترحيب -->
+    <!-- ========================================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. إخفاء شاشة الترحيب بعد ثانيتين ونصف وإظهار الموقع كاملاً
+            setTimeout(function() {
+                var splash = document.getElementById("splash-screen");
+                var mainContent = document.getElementById("main-content");
+                
+                if(splash && mainContent) {
+                    splash.style.opacity = "0";
+                    
+                    setTimeout(function() {
+                        splash.style.display = "none";
+                        mainContent.style.display = "block";
+                        // تشغيل فحص حركات التمرير فوراً بعد التحميل
+                        checkScrollAnimations();
+                    }, 600);
+                }
+            }, 2500); 
+
+            // 2. كود مراقبة حركة التمرير لتفعيل ظهور العناصر بسلاسة
+            var animatedElements = document.querySelectorAll('.animate-up, .animate-zoom');
+
+            function checkScrollAnimations() {
+                var triggerBottom = window.innerHeight * 0.85;
+
+                animatedElements.forEach(function(element) {
+                    var elementTop = element.getBoundingClientRect().top;
+                    if (elementTop < triggerBottom) {
+                        element.classList.add('show');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkScrollAnimations);
+        });
+    </script>
+</body>
+</html>
