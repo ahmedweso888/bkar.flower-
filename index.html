@@ -49,6 +49,7 @@
             z-index: 9999;
             transition: opacity 0.6s ease;
         }
+        
 
         .splash-logo-img {
             width: 260px;               /* حجم مناسب وواضح للشعار */
@@ -221,6 +222,31 @@
             font-weight: bold;
             margin-top: 15px;
         }
+        /* الكام سطر دول اللي هيظبطوا شكل الكروت جنب بعضها */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.03);
+    border: 1px solid rgba(225,245,254,0.7);
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.07);
+}
+
 
         /* 9. شبكة طرق الدفع */
         .payment-container {
@@ -334,57 +360,49 @@
             <h2 class="section-title">الورد المتوفر حالياً</h2>
             <p style="text-align: center; color: #607D8B; margin-top: -30px; margin-bottom: 40px; font-size: 15px;">تصفح تشكيلتنا المتجددة واختر ما يناسب مناسبتك السعيدة</p>
             
-            <div class="flower-grid">
-                <!-- كارت 1 -->
-                <div class="flower-card animate-zoom">
-                    <div class="flower-img">💐</div>
-                    <h3>بوكيه الخطوبة والزفاف الملكي</h3>
-                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">تنسيق فاخر من الروز الأبيض والبيبي روز مع لمسات خضراء أنيقة.</p>
-                    <span class="status-badge">جاهز ومتوفر بالمحل</span>
-                </div>
+            <!-- كروت أقسام محل بكار فلور المحدثة -->
+         <div class="cards-grid">
+         <!-- 1. كارت الورود الطبيعية -->
+         <div class="card" onclick="openGallery('🌸 الورود الطبيعية الموجودة حالياً', ['nat1.jpg', 'nat2.jpg', 'nat3.jpg', 'nat4.jpg', 'nat5.jpg', 'nat6.jpg', 'nat7.jpg', 'nat8.jpg', 'nat9.jpg', 'nat10.jpg'])">
+         <h3>🌸 الورود الطبيعية الموجودة حالياً</h3>
+         <p>تصفح تشكيلة الورد الطبيعي الفريش</p>
+          </div>
 
-                <!-- كارت 2 -->
-                <div class="flower-card animate-zoom">
-                    <div class="flower-img">🌹</div>
-                    <h3>فازة الروز الأحمر الكلاسيكية</h3>
-                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">أرقى زهور الروز الأحمر الهولندي المرتبة داخل فازة زجاجية فاخرة.</p>
-                    <span class="status-badge">جاهز ومتوفر بالمحل</span>
-                </div>
+         <!-- 2. كارت الورود الصناعية -->
+         <div class="card" onclick="openGallery('🌿 الورود الصناعية المتوفرة حالياً', ['art1.jpg', 'art2.jpg', 'art3.jpg', 'art4.jpg', 'art5.jpg', 'art6.jpg', 'art7.jpg', 'art8.jpg', 'art9.jpg', 'art10.jpg'])">
+         <h3>🌿 الورود الصناعية المتوفرة حالياً</h3>
+         <p>تصفح الورد الصناعي عالي الجودة</p>
+          </div>
 
-                <!-- كارت 3 -->
-                <div class="flower-card animate-zoom">
-                    <div class="flower-img">🌸</div>
-                    <h3>بوكس هدايا ميكس توليب وبيبي روز</h3>
-                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">تنسيق مبهج بألوان الباستيل الهادئة داخل بوكس مخملي أنيق.</p>
-                    <span class="status-badge">جاهز ومتوفر بالمحل</span>
-                </div>
+          <!-- 3. كارت بوكيهات عيد الأم -->
+          <div class="card" onclick="openGallery('❤️ بوكيهات عيد الأم', ['mom1.jpg', 'mom2.jpg', 'mom3.jpg', 'mom4.jpg', 'mom5.jpg', 'mom6.jpg', 'mom7.jpg', 'mom8.jpg', 'mom9.jpg', 'mom10.jpg'])">
+          <h3>❤️ بوكيهات عيد الأم</h3>
+         <p>أجمل الهدايا ست الحبايب</p>
+         </div>
 
-                <!-- كارت 4 -->
-                <div class="flower-card animate-zoom">
-                    <div class="flower-img">🌻</div>
-                    <h3>باقة عباد الشمس الحيوية</h3>
-                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">باقة تشع بالطاقة والإيجابية من زهور عباد الشمس الطبيعية المبهجة.</p>
-                    <span class="status-badge" style="background-color: #FFF3E0; color: #E65100;">متاح بالطلب المسبق</span>
-                </div>
+         <!-- 4. كارت بوكسات الهدايا وأعياد الميلاد -->
+         <div class="card" onclick="openGallery('🎁 بوكسات الهدايا وأعياد الميلاد', ['box1.jpg', 'box2.jpg', 'box3.jpg', 'box4.jpg', 'box5.jpg', 'box6.jpg', 'box7.jpg', 'box8.jpg', 'box9.jpg', 'box10.jpg'])">
+         <h3>🎁 بوكسات الهدايا وأعياد الميلاد</h3>
+         <p>تنسيقات مميزة ومفاجآت أعياد الميلاد</p>
+          </div>
+  
+         <!-- 5. كارت بوكيهات الفلانتين -->
+         <div class="card" onclick="openGallery('🌹 بوكيهات الفلانتين', ['val1.jpg', 'val2.jpg', 'val3.jpg', 'val4.jpg', 'val5.jpg', 'val6.jpg', 'val7.jpg', 'val8.jpg', 'val9.jpg', 'val10.jpg'])">
+          <h3>🌹 بوكيهات الفلانتين</h3>
+          <p>تشكيلة اللون الأحمر الرومانسية</p>
+         </div>
 
-                <!-- كارت 5 -->
-                <div class="flower-card animate-zoom">
-                    <div class="flower-img">💮</div>
-                    <h3>بوكيه رقة الأوركيد والـ شوكولاتة</h3>
-                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">دمج راقٍ بين زهور الأوركيد النادرة وقطع الشوكولاتة الفاخرة للهدايا.</p>
-                    <span class="status-badge">جاهز ومتوفر بالمحل</span>
-                </div>
+         <!-- 6. كارت بوكيه الخطوبة والزفاف -->
+          <div class="card" onclick="openGallery('💍 بوكيه الخطوبة والزفاف', ['wed1.jpg', 'wed2.jpg', 'wed3.jpg', 'wed4.jpg', 'wed5.jpg', 'wed6.jpg', 'wed7.jpg', 'wed8.jpg', 'wed9.jpg', 'wed10.jpg'])">
+         <h3>💍 بوكيه الخطوبة والزفاف</h3>
+         <p>بوكيهات العرايس وتنسيقات ليلة العمر</p>
+         </div>
 
-                <!-- كارت 6 -->
-                <div class="flower-card animate-zoom">
-                    <div class="flower-img">🌾</div>
-                    <h3>تنسيق زهور مجففة ودائمة</h3>
-                    <p style="color: #78909C; font-size: 13px; padding: 5px 10px;">باقة كلاسيكية مميزة من الزهور المجففة التي تدوم لسنوات دون أن تذبل.</p>
-                    <span class="status-badge">جاهز ومتوفر بالمحل</span>
-                </div>
+         </div>
+
             </div>
         </section>
-
+        
         <!-- ========================================== -->
         <!-- 6. قسم طرق الدفع المتاحة -->
         <!-- ========================================== -->
@@ -406,7 +424,7 @@
                 <div class="pay-card">
                     <div class="icon">💳</div>
                     <h3>البطاقات وإنستا باي</h3>
-                    <p style="color: #546E7A; font-size: 13px; margin-top: 10px;">نقبل الدفع ببطاقات الفيزا وماستر كارد، أو عبر التحويل المباشر وتطبيق إنستا باي (InstaPay).</p>
+                    <p style="color: #546E7A; font-size: 13px; margin-top: 10px;">نقبل الدفع ببطاقات الفيزا وماستر كارد، أو عبر التحويل المباشر علي (01001156061)وتطبيق إنستا باي علي () (InstaPay).</p>
                 </div>
             </div>
         </section>
@@ -436,10 +454,10 @@
                 </div>
             </div>
         </section>
-
+       
         <!-- الفوتر والإنهاء -->
         <footer>
-            <p style="font-weight: 600;">جميع الحقوق محفوظة © Bkar Flower 2026</p> 
+            <p style="font-weight: 600;">جميع الحقوق محفوظة © Bkar Flower 2026</p>
             <p style="font-size: 13px; color: #B0BEC5;"><Data>Developed by Ahmed Essam</Data></p>
         </footer>
     </div> <!-- إغلاق وسم main-content من الجزء الأول -->
@@ -479,9 +497,87 @@
                     }
                 });
             }
+            
 
             window.addEventListener('scroll', checkScrollAnimations);
         });
     </script>
+    <!-- هيكل النافذة البرمجية المطور لـ 6 كروت -->
+<div id="galleryModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; z-index: 99999; padding: 20px; box-sizing: border-box;" onclick="if(event.target.id === 'galleryModal') this.style.display = 'none';">
+    <div style="background: white; padding: 30px; border-radius: 20px; max-width: 1000px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+        <span style="position: absolute; top: 10px; right: 20px; font-size: 40px; cursor: pointer; color: #aaa; font-family: sans-serif;" onclick="document.getElementById('galleryModal').style.display = 'none';">&times;</span>
+        <h2 id="modalTitle" style="color: #d87093; text-align: center; margin-bottom: 25px; font-family: inherit;">القسم</h2>
+        <div id="galleryGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;"></div>
+    </div>
+</div>
+
+<script>
+function openGallery(title, imagesArray) {
+    document.getElementById('modalTitle').innerText = title;
+    const grid = document.getElementById('galleryGrid');
+    grid.innerHTML = ''; 
+
+    imagesArray.forEach(imgName => {
+        const itemDiv = document.createElement('div');
+        itemDiv.style.background = '#fdfdfd';
+        itemDiv.style.padding = '8px';
+        itemDiv.style.border = '1px solid #eee';
+        itemDiv.style.borderRadius = '10px';
+
+        const img = document.createElement('img');
+        img.src = 'images/' + imgName; 
+        img.style.width = '100%';
+        img.style.height = '220px';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '8px';
+        
+        img.onerror = function() { this.src = 'https://placeholder.com'; };
+
+        itemDiv.appendChild(img);
+        grid.appendChild(itemDiv);
+    });
+
+    document.getElementById('galleryModal').style.display = 'flex';
+}
+</script>
+<!-- كود تشغيل النافذة والـ 10 صور -->
+<div id="galleryModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; z-index: 99999; padding: 20px; box-sizing: border-box;" onclick="if(event.target.id === 'galleryModal') this.style.display = 'none';">
+    <div style="background: white; padding: 30px; border-radius: 20px; max-width: 1000px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative;">
+        <span style="position: absolute; top: 10px; right: 20px; font-size: 40px; cursor: pointer; color: #aaa; font-family: sans-serif;" onclick="document.getElementById('galleryModal').style.display = 'none';">&times;</span>
+        <h2 id="modalTitle" style="color: #d87093; text-align: center; margin-bottom: 25px;">القسم</h2>
+        <div id="galleryGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;"></div>
+    </div>
+</div>
+
+<script>
+function openGallery(title, imagesArray) {
+    document.getElementById('modalTitle').innerText = title;
+    const grid = document.getElementById('galleryGrid');
+    grid.innerHTML = ''; 
+
+    imagesArray.forEach(imgName => {
+        const itemDiv = document.createElement('div');
+        itemDiv.style.background = '#fdfdfd';
+        itemDiv.style.padding = '8px';
+        itemDiv.style.border = '1px solid #eee';
+        itemDiv.style.borderRadius = '10px';
+
+        const img = document.createElement('img');
+        img.src = 'images/' + imgName; 
+        img.style.width = '100%';
+        img.style.height = '220px';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '8px';
+        
+        // لو الصورة مش موجودة هيظهر مربع رمادي مؤقت للتجربة
+        img.onerror = function() { this.src = 'https://placeholder.com'; };
+
+        itemDiv.appendChild(img);
+        grid.appendChild(itemDiv);
+    });
+    document.getElementById('galleryModal').style.display = 'flex';
+}
+</script>
+
 </body>
 </html>
