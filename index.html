@@ -308,6 +308,119 @@
             opacity: 1;
             transform: translateY(0) scale(1);
         }
+        /* تنسيق الحاوية الرئيسية لفورم Bkar Flower */
+.order-form-container {
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  direction: rtl; /* محاذاة من اليمين لليسار */
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.order-form-container h2 {
+  color: #d63384; /* لون وردي جذاب يناسب الورد */
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.order-form-container p {
+  color: #6c757d;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* تنسيق خانات الإدخال */
+.form-group {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+  font-size: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+  text-align: right;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #d63384;
+  outline: none;
+}
+
+/* تنسيق صندوق دفع العربون */
+.deposit-section {
+  background-color: #fff0f6; /* خلفية هادئة تميز منطقة الدفع */
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px dashed #d63384;
+  margin-bottom: 25px;
+  text-align: right;
+}
+
+.deposit-section h3 {
+  color: #c2185b;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.deposit-section p {
+  text-align: right;
+  font-size: 13px;
+  color: #495057;
+  margin-bottom: 10px;
+}
+
+.deposit-section ul {
+  padding-right: 20px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #333;
+  list-style-type: disc;
+}
+
+.deposit-section ul li {
+  margin-bottom: 5px;
+}
+
+/* تنسيق زر الإرسال */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #d63384;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #b8266f;
+}
+
 
         /* تحسينات الشاشات الصغيرة للهواتف */
         @media (max-width: 768px) {
@@ -350,7 +463,7 @@
         <!-- قسم نبذة عنا -->
         <section id="about" class="animate-up">
             <h2 class="section-title">نبذة عنا</h2>
-            <p style="text-align: center; color: #607D8B; margin-top: -30px; margin-bottom: 40px; font-size: 15px;">بكار فلاور مش مجرد بوكيه ورد لان كل بوكيه بيكون ليه لفه وطريقه وتصميم مختلف عن غيرو من البوكيهات يعني بوكيه حضرتك هيكون مميز عن اي بوكيه ف اي مكان  بكار فالور جاخز لكل المناسبات (اعياد ميلاد او زفاف  او خطوبه او افتتاح او مناقشات الدكتوراه والماجستير )</p>
+            <p style="text-align: center; color: #607D8B; margin-top: -30px; margin-bottom: 40px; font-size: 15px;">بكار فلاور مش مجرد بوكيه ورد لان كل بوكيه بيكون ليه لفه وطريقه وتصميم مختلف عن غيرو من البوكيهات يعني بوكيه حضرتك هيكون مميز عن اي بوكيه ف اي مكان  بكار فلاور جاهز لكل المناسبات (اعياد ميلاد او زفاف  او خطوبه او افتتاح او مناقشات الدكتوراه والماجستير )</p>
             <p style="text-align: center; color: #607D8B; margin-bottom: 40px; font-size: 15px;">من خلال خبرتنا الطويلة في عالم الزهور، نختار بعناية كل زهرة وننسقها بحب واهتمام لنضمن لك تجربة شراء لا مثيل لها.</p>
         </section>
             <!-- ========================================== -->
@@ -364,43 +477,23 @@
          <div class="cards-grid">
          <!-- 1. كارت الورود الطبيعية -->
          <div class="card" onclick="openGallery('🌸 الورود الطبيعية الموجودة حالياً', ['nat1.jpg', 'nat2.jpg', 'nat3.jpg', 'nat4.jpg', 'nat5.jpg', 'nat6.jpg', 'nat7.jpg', 'nat8.jpg', 'nat9.jpg', 'nat10.jpg'])">
-         <h3>🌸 الورود الطبيعية الموجودة حالياً</h3>
+         <h3>🌸 الوردالطبيعي الموجود حالياً</h3>
          <p>تصفح تشكيلة الورد الطبيعي الفريش</p>
           </div>
 
          <!-- 2. كارت الورود الصناعية -->
          <div class="card" onclick="openGallery('🌿 الورود الصناعية المتوفرة حالياً', ['art1.jpg', 'art2.jpg', 'art3.jpg', 'art4.jpg', 'art5.jpg', 'art6.jpg', 'art7.jpg', 'art8.jpg', 'art9.jpg', 'art10.jpg'])">
-         <h3>🌿 الورود الصناعية المتوفرة حالياً</h3>
+         <h3>🌿 الورد الصناعي المتوفر حالياً</h3>
          <p>تصفح الورد الصناعي عالي الجودة</p>
           </div>
 
           <!-- 3. كارت بوكيهات عيد الأم -->
-          <div class="card" onclick="openGallery('❤️ بوكيهات عيد الأم', ['mom1.jpg', 'mom2.jpg', 'mom3.jpg', 'mom4.jpg', 'mom5.jpg', 'mom6.jpg', 'mom7.jpg', 'mom8.jpg', 'mom9.jpg', 'mom10.jpg'])">
-          <h3>❤️ بوكيهات عيد الأم</h3>
-         <p>أجمل الهدايا ست الحبايب</p>
+          <div class="card" onclick="openGallery('❤️ البوكهيات المتاحه حاليا', ['mom1.jpg', 'mom2.jpg', 'mom3.jpg', 'mom4.jpg', 'mom5.jpg', 'mom6.jpg', 'mom7.jpg', 'mom8.jpg', 'mom9.jpg', 'mom10.jpg'])">
+          <h3>❤️ البوكيهات المتاحه</h3>
+         <p>بوكيهاتنا غير اي بوكيهات</p>
          </div>
 
-         <!-- 4. كارت بوكسات الهدايا وأعياد الميلاد -->
-         <div class="card" onclick="openGallery('🎁 بوكسات الهدايا وأعياد الميلاد', ['box1.jpg', 'box2.jpg', 'box3.jpg', 'box4.jpg', 'box5.jpg', 'box6.jpg', 'box7.jpg', 'box8.jpg', 'box9.jpg', 'box10.jpg'])">
-         <h3>🎁 بوكسات الهدايا وأعياد الميلاد</h3>
-         <p>تنسيقات مميزة ومفاجآت أعياد الميلاد</p>
-          </div>
-  
-         <!-- 5. كارت بوكيهات الفلانتين -->
-         <div class="card" onclick="openGallery('🌹 بوكيهات الفلانتين', ['val1.jpg', 'val2.jpg', 'val3.jpg', 'val4.jpg', 'val5.jpg', 'val6.jpg', 'val7.jpg', 'val8.jpg', 'val9.jpg', 'val10.jpg'])">
-          <h3>🌹 بوكيهات الفلانتين</h3>
-          <p>تشكيلة اللون الأحمر الرومانسية</p>
-         </div>
-
-         <!-- 6. كارت بوكيه الخطوبة والزفاف -->
-          <div class="card" onclick="openGallery('💍 بوكيه الخطوبة والزفاف', ['wed1.jpg', 'wed2.jpg', 'wed3.jpg', 'wed4.jpg', 'wed5.jpg', 'wed6.jpg', 'wed7.jpg', 'wed8.jpg', 'wed9.jpg', 'wed10.jpg'])">
-         <h3>💍 بوكيه الخطوبة والزفاف</h3>
-         <p>بوكيهات العرايس وتنسيقات ليلة العمر</p>
-         </div>
-
-         </div>
-
-            </div>
+         
         </section>
         
         <!-- ========================================== -->
@@ -571,13 +664,70 @@ function openGallery(title, imagesArray) {
         
         // لو الصورة مش موجودة هيظهر مربع رمادي مؤقت للتجربة
         img.onerror = function() { this.src = 'https://placeholder.com'; };
-
+        
         itemDiv.appendChild(img);
         grid.appendChild(itemDiv);
     });
-    document.getElementById('galleryModal').style.display = 'flex';
+    document.getElementById('galleryModal').style.display = 'block';
 }
 </script>
+
+<!-- حاوية فورم الطلب المحدثة -->
+<div class="order-form-container">
+  <h2>طلب بوكيه ورد جديد 🌸</h2>
+  <p>املأ البيانات التالية لتقديم طلبك لمحل Bkar Flower</p>
+  
+  <!-- ملاحظة: تم إضافة enctype="multipart/form-data" للسماح برفع الصور والملفات -->
+  <form action="https://formspree.io/f/meebepwp" method="POST"  class="bkar-order-form">
+    
+    <!-- خانة الاسم -->
+    <div class="form-group">
+      <label for="client-name">اسمك الكريم:</label>
+      <input type="text" id="client-name" name="الاسم" placeholder="اكتب اسمك الثلاثي" required>
+    </div>
+
+    <!-- خانة رقم الهاتف -->
+    <div class="form-group">
+      <label for="client-phone">رقم الهاتف (واتساب):</label>
+      <input type="tel" id="client-phone" name="رقم الهاتف" placeholder="مثال: 01xxxxxxxxx" required>
+    </div>
+
+    <!-- خانة نوع أو اسم البوكيه -->
+    <div class="form-group">
+      <label for="bouquet-type">البوكيه المطلوب (أو المناسبة):</label>
+      <input type="text" id="bouquet-type" name="البوكيه المطلوب" placeholder="مثال: بوكيه ورد أحمر شيك / بوكيه خطوبة">
+    </div>
+
+    <!-- خانة ميعاد التسليم الجديده -->
+    <div class="form-group">
+      <label for="delivery-time">ميعاد التسليم المطلوب (اليوم والوقت):</label>
+      <input type="datetime-local" id="delivery-time" name="ميعاد التسليم المطلوب" required>
+    </div>
+
+    <!-- خانة التعديلات والملاحظات -->
+    <div class="form-group">
+      <label for="customizations">التعديلات المطلوبة على البوكيه:</label>
+      <textarea id="customizations" name="التعديلات المطلوبة" rows="3" placeholder="مثال: تغيير لون الغلاف للأسود، إضافة كارت مكتوب عليه مبروك..."></textarea>
+    </div>
+
+    <!-- قسم تحويل العربون (Deposit) -->
+    <div class="deposit-section">
+      <h3>💸 خطوة دفع العربون (تأكيد جدية الطلب)</h3>
+      <p>يرجى تحويل مبلغ العربون المتفق عليه (مثلاً 50 أو 100 جنيه) إلى أحد الأرقام التالية:</p>
+      <ul>
+        <li><strong>فودافون كاش:</strong> 01001156061</li>
+        <li><strong>إنستا باي (InstaPay):</strong> bkarflower@instapay</li>
+      </ul>
+      
+      <div class="form-group">
+      <label for="bouquet-type">الرقم أو يوزر الانستاباي:</label>
+      <input type="text" id="bouquet-type" name="الرقم أو يوزر الانستاباي" placeholder="مثال : 01xxxxxxxxx" required>
+    </div>
+
+    <!-- زر إرسال الطلب -->
+    <button type="submit" class="submit-btn">إرسال الطلب وتأكيده بالرقم او يوزر الانستاباي اللذي تم التحويل منه
+  </form>
+</div>
 
 </body>
 </html>
