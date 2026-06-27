@@ -308,6 +308,7 @@
             opacity: 1;
             transform: translateY(0) scale(1);
         }
+
         /* تنسيق الحاوية الرئيسية لفورم Bkar Flower */
 .order-form-container {
   max-width: 550px;
@@ -469,6 +470,7 @@
             <!-- ========================================== -->
         <!-- 5. قسم الورد المتوفر (المعرض الكامل والمنظم) -->
         <!-- ========================================== -->
+
         <section id="flowers">
             <h2 class="section-title">الورد المتوفر حالياً</h2>
             <p style="text-align: center; color: #607D8B; margin-top: -30px; margin-bottom: 40px; font-size: 15px;">تصفح تشكيلتنا المتجددة واختر ما يناسب مناسبتك السعيدة</p>
@@ -608,7 +610,7 @@
 function openGallery(title, imagesArray) {
     document.getElementById('modalTitle').innerText = title;
     const grid = document.getElementById('galleryGrid');
-    grid.innerHTML = ''; 
+    grid.innerHTML = '';
 
     imagesArray.forEach(imgName => {
         const itemDiv = document.createElement('div');
@@ -618,57 +620,25 @@ function openGallery(title, imagesArray) {
         itemDiv.style.borderRadius = '10px';
 
         const img = document.createElement('img');
-        img.src = 'images/' + imgName; 
+        img.src = 'images/' + imgName;
         img.style.width = '100%';
         img.style.height = '220px';
         img.style.objectFit = 'cover';
         img.style.borderRadius = '8px';
-        
+
         img.onerror = function() { this.src = 'https://placeholder.com'; };
 
         itemDiv.appendChild(img);
+
+        itemDiv.onclick = function() {
+            document.querySelector('.order-form-container').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('galleryModal').style.display = 'none';
+        };
+
         grid.appendChild(itemDiv);
     });
 
     document.getElementById('galleryModal').style.display = 'flex';
-}
-</script>
-<!-- كود تشغيل النافذة والـ 10 صور -->
-<div id="galleryModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; z-index: 99999; padding: 20px; box-sizing: border-box;" onclick="if(event.target.id === 'galleryModal') this.style.display = 'none';">
-    <div style="background: white; padding: 30px; border-radius: 20px; max-width: 1000px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative;">
-        <span style="position: absolute; top: 10px; right: 20px; font-size: 40px; cursor: pointer; color: #aaa; font-family: sans-serif;" onclick="document.getElementById('galleryModal').style.display = 'none';">&times;</span>
-        <h2 id="modalTitle" style="color: #d87093; text-align: center; margin-bottom: 25px;">القسم</h2>
-        <div id="galleryGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;"></div>
-    </div>
-</div>
-
-<script>
-function openGallery(title, imagesArray) {
-    document.getElementById('modalTitle').innerText = title;
-    const grid = document.getElementById('galleryGrid');
-    grid.innerHTML = ''; 
-
-    imagesArray.forEach(imgName => {
-        const itemDiv = document.createElement('div');
-        itemDiv.style.background = '#fdfdfd';
-        itemDiv.style.padding = '8px';
-        itemDiv.style.border = '1px solid #eee';
-        itemDiv.style.borderRadius = '10px';
-
-        const img = document.createElement('img');
-        img.src = 'images/' + imgName; 
-        img.style.width = '100%';
-        img.style.height = '220px';
-        img.style.objectFit = 'cover';
-        img.style.borderRadius = '8px';
-        
-        // لو الصورة مش موجودة هيظهر مربع رمادي مؤقت للتجربة
-        img.onerror = function() { this.src = 'https://placeholder.com'; };
-        
-        itemDiv.appendChild(img);
-        grid.appendChild(itemDiv);
-    });
-    document.getElementById('galleryModal').style.display = 'block';
 }
 </script>
 
@@ -682,7 +652,7 @@ function openGallery(title, imagesArray) {
     
     <!-- خانة الاسم -->
     <div class="form-group">
-      <label for="client-name">اسمك الكريم:</label>
+      <label for="client-name">اسم العميل</label>
       <input type="text" id="client-name" name="الاسم" placeholder="اكتب اسمك الثلاثي" required>
     </div>
 
@@ -694,8 +664,8 @@ function openGallery(title, imagesArray) {
 
     <!-- خانة نوع أو اسم البوكيه -->
     <div class="form-group">
-      <label for="bouquet-type">البوكيه المطلوب (أو المناسبة):</label>
-      <input type="text" id="bouquet-type" name="البوكيه المطلوب" placeholder="مثال: بوكيه ورد أحمر شيك / بوكيه خطوبة">
+      <label for="bouquet-type">مواصفات البوكيه وعدد الورد المطلوب </label>
+      <input type="text" id="bouquet-type" name="البوكيه المطلوب" placeholder="مثال: 5 ورد احمر محاط بالبيبي فلاور">
     </div>
 
     <!-- خانة ميعاد التسليم الجديده -->
@@ -706,8 +676,8 @@ function openGallery(title, imagesArray) {
 
     <!-- خانة التعديلات والملاحظات -->
     <div class="form-group">
-      <label for="customizations">التعديلات المطلوبة على البوكيه:</label>
-      <textarea id="customizations" name="التعديلات المطلوبة" rows="3" placeholder="مثال: تغيير لون الغلاف للأسود، إضافة كارت مكتوب عليه مبروك..."></textarea>
+      <label for="customizations">التعديلات المطلوبة على البوكيه والملاحظات</label>
+      <textarea id="customizations" name="التعديلات المطلوبة" rows="3" placeholder="مثال: لون اللفه واكسسوارات البوكيه المطلوب اضافتها..."></textarea>
     </div>
 
     <!-- قسم تحويل العربون (Deposit) -->
@@ -720,12 +690,12 @@ function openGallery(title, imagesArray) {
       </ul>
       
       <div class="form-group">
-      <label for="bouquet-type">الرقم أو يوزر الانستاباي اللي تم التحويل منه :</label>
-      <input type="text" id="bouquet-type" name="الرقم أو يوزر الانستاباي" placeholder="مثال : 01xxxxxxxxx" required>
+      <label for="bouquet-type">الرقم أو يوزر الانستاباي:</label>
+      <input type="text" id="payment-source" name="الرقم أو يوزر الانستاباي" placeholder="مثال : 01xxxxxxxxx" required>
     </div>
 
     <!-- زر إرسال الطلب -->
-    <button type="submit" class="submit-btn">إرسال الطلب وتأكيده بالرقم او يوزر الانستاباي اللذي تم التحويل منه
+    <button type="submit" class="submit-btn">إرسال الطلب وتأكيده بالرقم او يوزر الانستاباي اللذي تم التحويل منه  </button>
   </form>
 </div>
 
